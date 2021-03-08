@@ -1,0 +1,135 @@
+Available projection types
+PROJECTION_NONE                = 0      # No projection
+PROJECTION_CLOSEST             = 1 # The projection will be the closest point on the surface
+PROJECTION_ALONG_NORMAL        = 2 # The projection will be done along the normal.
+PROJECTION_ALONG_NORMAL_RECALC = 3 # The projection will be done along the normal. Furthermore, the normal will be recalculated according to the surface normal.
+PROJECTION_CLOSEST_RECALC      = 4 # The projection will be the closest point on the surface and the normals will be recalculated
+PROJECTION_RECALC              = 5 # The normals are recalculated according to the surface normal of the closest projection. The points are not changed.
+
+Available Reference Frame Calibration Algorithms
+CALIBRATE_FRAME_3P_P1_ON_X = 0      # Calibrate by 3 points: [X, X+, Y+] (p1 on X axis)
+CALIBRATE_FRAME_3P_P1_ORIGIN = 1    # Calibrate by 3 points: [Origin, X+, XY+] (p1 is origin)
+CALIBRATE_FRAME_6P = 2              # Calibrate by 6 points
+CALIBRATE_TURNTABLE = 3             # Calibrate turntable
+
+Available Tool Calibration Algorithms
+CALIBRATE_TCP_BY_POINT      # Take the same point using different orientations
+CALIBRATE_TCP_BY_PLANE      # Take the same point on a plane
+
+Available Item types
+ITEM_TYPE_STATION=1             # station item (.rdk files)
+ITEM_TYPE_ROBOT=2               # robot item (.robot files)
+ITEM_TYPE_FRAME=3               # reference frame item
+ITEM_TYPE_TOOL=4                # tool item (.tool files or tools without geometry)
+ITEM_TYPE_OBJECT=5              # object item (.stl, .step, .iges, ...)
+ITEM_TYPE_TARGET=6              # target item
+ITEM_TYPE_PROGRAM=8             # program item (made using the GUI)
+ITEM_TYPE_PROGRAM_PYTHON=10     # Python program or macro
+
+Allowed parameter options
+STEP=AxB: Defines the grid to be projected 1x1 means only one line of particle projection (for example, for welding)
+PARTICLE: Defines the shape and size of particle (sphere or particle), unless a specific geometry is provided:
+    a- SPHERE(radius, facets)
+    b- SPHERE(radius, facets, scalex, scaley, scalez)
+    b- CUBE(sizex, sizey, sizez)
+RAND=factor: Defines a random factor factor 0 means that the particles are not deposited randomly
+ELLYPSE: defines the volume as an ellypse (default)
+RECTANGLE: defines the volume as a rectangle
+PROJECT: project the particles to the surface (default) (for welding, painting or scanning)
+NO_PROJECT: does not project the particles to the surface (for example, for 3D printing)
+
+Allowed RoboDK flags
+FLAG_ITEM_SELECTABLE = 1        # Allow selecting the item
+FLAG_ITEM_EDITABLE = 2          # Allow editing the item
+FLAG_ITEM_DRAGALLOWED = 4       # Allow dragging the item
+FLAG_ITEM_DROPALLOWED = 8       # Allow dropping nested items
+FLAG_ITEM_ENABLED = 32          # Enable this item in the tree
+FLAG_ITEM_NONE = 0              # Disable everything
+FLAG_ITEM_ALL = 64+32+8+4+2+1   # Enable everything
+
+Available global parameters
+PATH_OPENSTATION       # Full path of the current station (.rdk file)
+FILE_OPENSTATION       # File name of the current station (name of the .rdk file)
+PATH_DESKTOP           # Full path to the desktop folder
+
+Allowed RoboDK flags
+FLAG_ROBODK_TREE_ACTIVE = 1                 # Enable the tree
+FLAG_ROBODK_3DVIEW_ACTIVE = 2               # Enable the 3D view (3D mouse navigation)
+FLAG_ROBODK_LEFT_CLICK = 4                  # Enable left clicks
+FLAG_ROBODK_RIGHT_CLICK = 8                 # Enable right clicks
+FLAG_ROBODK_DOUBLE_CLICK = 16               # Enable double clicks
+FLAG_ROBODK_MENU_ACTIVE = 32                # Enable the main menu (complete menu)
+FLAG_ROBODK_MENUFILE_ACTIVE = 64            # Enable the File menu
+FLAG_ROBODK_MENUEDIT_ACTIVE = 128           # Enable the Edit menu
+FLAG_ROBODK_MENUPROGRAM_ACTIVE = 256        # Enable the Program menu
+FLAG_ROBODK_MENUTOOLS_ACTIVE = 512          # Enable the Tools menu
+FLAG_ROBODK_MENUUTILITIES_ACTIVE = 1024     # Enable the Utilities menu
+FLAG_ROBODK_MENUCONNECT_ACTIVE = 2048       # Enable the Connect menu
+FLAG_ROBODK_WINDOWKEYS_ACTIVE = 4096        # Enable the keyboard
+FLAG_ROBODK_TREE_VISIBLE = 8192             # Make the station tree visible
+FLAG_ROBODK_REFERENCES_VISIBLE = 16384      # Make the reference frames visible
+FLAG_ROBODK_NONE = 0                        # Disable everything
+FLAG_ROBODK_ALL = 0xFFFF                    # Enable everything
+FLAG_ROBODK_MENU_ACTIVE_ALL                 # Enable the menu only
+
+Available run modes
+RUNMODE_SIMULATE=1                      # performs the simulation moving the robot (default)
+RUNMODE_QUICKVALIDATE=2                 # performs a quick check to validate the robot movements
+RUNMODE_MAKE_ROBOTPROG=3                # makes the robot program
+RUNMODE_MAKE_ROBOTPROG_AND_UPLOAD=4     # makes the robot program and updates it to the robot
+RUNMODE_MAKE_ROBOTPROG_AND_START=5      # makes the robot program and starts it on the robot (independently from the PC)
+RUNMODE_RUN_ROBOT=6                     # moves the real robot from the PC (PC is the client, the robot behaves like a server)
+
+Allowed window states
+WINDOWSTATE_HIDDEN      = -1        # Hidden
+WINDOWSTATE_SHOW        = 0         # Visible
+WINDOWSTATE_MINIMIZED   = 1         # Minimize window
+WINDOWSTATE_NORMAL      = 2         # Show normal window (last known state)
+WINDOWSTATE_MAXIMIZED   = 3         # Show maximized window
+WINDOWSTATE_FULLSCREEN  = 4         # Show fulscreen window
+WINDOWSTATE_CINEMA      = 5         # Show maximized window without the toolbar and without the menu
+WINDOWSTATE_FULLSCREEN_CINEMA= 6    # Show fulscreen window without the toolbar and without the menu
+
+Error bit masks
+error_bin = int(str(ERROR),2)
+ERROR_KINEMATIC = 0b001             # One or more points in the path is not reachable
+ERROR_PATH_LIMIT = 0b010            # The path reached a joint axis limit
+ERROR_PATH_NEARSINGULARITY = 0b1000 # The robot is too close to a wrist singularity (J5). Lower the singularity tolerance to allow the robot to continue.
+ERROR_PATH_SINGULARITY = 0b100      # The robot reached a singularity point
+ERROR_COLLISION = 0b100000          # Collision detected
+
+Available Instruction Types
+INSTRUCTION_CALL_PROGRAM = 0        # call program
+INSTRUCTION_INSERT_CODE = 1         # Insert raw code in the generated program
+INSTRUCTION_START_THREAD = 2        # Start a new process
+INSTRUCTION_COMMENT = 3             # Add a comment in the code
+INSTRUCTION_SHOW_MESSAGE = 4        # Add a message
+
+Available Frame flags
+# Default values for objects
+VISIBLE_REFERENCE_DEFAULT = -1
+VISIBLE_REFERENCE_ON = 1     # For objects and reference frames only
+VISIBLE_REFERENCE_OFF = 0    # For objects and reference frames only
+
+# Available flags to set robot visiblity
+VISIBLE_ROBOT_NONE = 0
+VISIBLE_ROBOT_FLANGE = 0x01
+VISIBLE_ROBOT_AXIS_Base_3D = 0x01 << 1
+VISIBLE_ROBOT_AXIS_Base_REF = 0x01 << 2
+VISIBLE_ROBOT_AXIS_1_3D = 0x01 << 3
+VISIBLE_ROBOT_AXIS_1_REF = 0x01 << 4
+VISIBLE_ROBOT_AXIS_2_3D = 0x01 << 5
+VISIBLE_ROBOT_AXIS_2_REF = 0x01 << 6
+VISIBLE_ROBOT_AXIS_3_3D = 0x01 << 7
+VISIBLE_ROBOT_AXIS_3_REF = 0x01 << 8
+VISIBLE_ROBOT_AXIS_4_3D = 0x01 << 9
+VISIBLE_ROBOT_AXIS_4_REF = 0x01 << 10
+VISIBLE_ROBOT_AXIS_5_3D = 0x01 << 11
+VISIBLE_ROBOT_AXIS_5_REF = 0x01 << 12
+VISIBLE_ROBOT_AXIS_6_3D = 0x01 << 13
+VISIBLE_ROBOT_AXIS_6_REF = 0x01 << 14
+VISIBLE_ROBOT_AXIS_7_3D = 0x01 << 15
+VISIBLE_ROBOT_AXIS_7_REF = 0x02 << 16
+VISIBLE_ROBOT_DEFAULT = 0x2AAAAAAB
+VISIBLE_ROBOT_ALL = 0x7FFFFFFF
+VISIBLE_ROBOT_ALL_REFS = 0x15555555
