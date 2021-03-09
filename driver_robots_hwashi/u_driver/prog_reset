@@ -1,0 +1,3 @@
+def resetProg():
+  sleep(30) //please enter parametr a ms(1 sec=1000 ms), for /dev/brain slow work
+end
