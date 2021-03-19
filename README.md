@@ -1,4 +1,4 @@
-# Industrial Robotic(Universal software for industrial robot)
+# Industrial Robotic(Universal software for industrial robot) for Hwashi.
 This project craeted OxideDevX(Anon Sec-old nickname).
 Project goals: to create your own universal system for controlling industrial welding robots.
 This repository stores post-processor modules and specialized software for programming Chinese Hwashi robots in its memory. This software is a platform for adapting it to a specific robot. The post-processor and the rest of the software make it possible to ensure hardware-software compatibility and to perform programming and / or control over the operation of the robot
