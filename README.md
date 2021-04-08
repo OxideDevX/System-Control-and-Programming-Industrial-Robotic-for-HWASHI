@@ -5,7 +5,7 @@ This repository stores post-processor modules and specialized software for progr
 On March 10, 2021, an algorithm for processing machine vision data was created. This system allows you to:
 * Perform offline programming (OLP) robots.
 * Monitor the quality of welding and correct the trajectory of the working tool (welding torch) by analyzing data from a web or 3D camera. Software installation can be carried out on any Linux distribution. It is desirable to have a Linux CNC for the correct functioning of the system.
-For machine vision to work, you need a computer with at least 2 gigabytes of RAM and a hard drive on board with a memory size of at least 320 gigabytes. If you have questions about the installation / configuration / integration of this complex on the production line where the Hwashi robot is used, please write to the contacts: Telegram: @pwntt or email: alexanderbond1966@gmail.com
+For machine vision to work, you need a computer with at least 2 gigabytes of RAM and a hard drive on board with a memory size of at least 320 gigabytes. If you have questions about the installation / configuration / integration of this complex on the production line where the Hwashi robot is used, please write to the contacts: Telegram:  or email: alexanderbond1966@gmail.com
 # Система офлайн программирования промышленных роботов Hwashi.
 Данный проект создан OxideDevX(старый никнейм Anon Sec).
 Цели проекта: создать собственную универсальную систему для управления промышленными сварочными роботами. 
@@ -22,7 +22,7 @@ For machine vision to work, you need a computer with at least 2 gigabytes of RAM
 
 Для работы машинного зрения нужен компьютер обладающий не менее 2 гигабайтами оперативной памяти и имеющий на борту жесткий диск с размером памяти не менее 320 гигабайт.
 Если Вы имеете вопросы по установке/настройке/интеграции данного комплекса на производственную линию где используеться робот Hwashi, прошу писать по контактам:
-Telegram: @pwntt или email: alexanderbond1966@gmail.com
+Telegram:  или email: alexanderbond1966@gmail.com
 
 Обновлено: 26 марта 2021 года начата работа по разработке графического интерфейса, автоматического инсталятора и создания драйверной подсистемы.
 Обновлено: 04.04.2021 г добавлены материалы про сам робот и его аппратную платформу. Проводиться обратная разработка протоколов управления.
