@@ -43,13 +43,9 @@ for i in range(n_sides+1):
     print("Moving to target %i: angle %.1f" % (i, ang*180/pi))
     print(str(Pose_2_TxyzRxyz(target_i)))
     robot.MoveL(target_i)
-    
-    #-----------------------------
-    # Post multiply: relative to the tool
-    #target_i = target_ref * rotz(ang) * transl(R,0,0) * rotz(-ang)
-    #robot.MoveL(target_i)
+    target_i = target_ref * rotz(ang) * transl(R,0,0) * rotz(-ang)
+    robot.MoveL(target_i)
 
 # move back to the center, then home:
 robot.MoveL(target_ref)
-
 print('Done')
