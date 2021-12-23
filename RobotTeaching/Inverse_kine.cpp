@@ -35,7 +35,7 @@ void Inverse_kine::Forward_calculate(double ang_S, double ang_L, double ang_U)
 void Inverse_kine::Inverse_calculate(double x_js,double y_js,double z_js)
 {
 	double SQ1=0, SQ2=0;
-	
+
 	ang_S = Rad2Deg*atan2(y_js, x_js);
 	double k21 = ((a1)*(a1)+(a2)*(a2)+(z_js)*(z_js)+k11*k11 - (a3)*(a3)-(d4)*(d4)-2 * (a1)*(k11)) / (2 * (a2));
 	double l21 = sqrt(z_js*z_js + (k11 - a1)*(k11 - a1));
@@ -57,4 +57,5 @@ void Inverse_kine::Inverse_calculate(double x_js,double y_js,double z_js)
 	ang_j_S = ang_S;
 	ang_j_L = ang_L;
 	ang_j_U = ang_U;
+	
 }
